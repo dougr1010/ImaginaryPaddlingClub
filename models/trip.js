@@ -6,11 +6,20 @@ var Schema = mongoose.Schema;
 
 var tripSchema = new Schema({
     id: Number,
+    linkId: String,
+    trip: String,
+    date: String,
+    dateMs: Number,
     description: String,
+    leader: String,
     attachments: Array,
     putInMap: String,
     shuttleMap: String,
-    attending: Array
+    attending: [{
+        username: String,
+        sent: String,
+        declined: String
+    }],
 });
 
 var Trip = mongoose.model('trip',tripSchema);

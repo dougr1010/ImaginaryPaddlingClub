@@ -14,9 +14,10 @@ app.controller('RegisterController', ['$scope', '$http', '$location', function($
         var jstring = {};
         jstring.username = $scope.username;
         jstring.password = $scope.password;
+
         $http({
             method: "POST",
-            url: "register/reg",
+            url: "users/reg",
             data: jstring
         }).then(function (response) {
             console.log('client reg response ', response);

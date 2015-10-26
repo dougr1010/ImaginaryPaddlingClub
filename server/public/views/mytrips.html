@@ -1,2 +1,14 @@
 <h1>MyTrips</h1>
 <p>{{message}}</p>
+
+
+<div class="myTripList">
+    <ul>
+        <li ng-repeat="trip in tripsImTaking track by $index">
+            <div>
+                {{trip}}<br />
+                <br />
+            </div>
+        </li>
+    </ul>
+</div>

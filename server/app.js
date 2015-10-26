@@ -1,19 +1,19 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+var express =      require('express');
+var path =         require('path');
+var favicon =      require('serve-favicon');
+var logger =       require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var bodyParser =   require('body-parser');
 
-var passport = require('passport');
-var session = require('express-session');
+var passport =      require('passport');
+var session =       require('express-session');
 var localStrategy = require('passport-local').Strategy;
-var mongoose = require('mongoose');
-var User = require('../models/User');
-var register = require('./routes/register');
+var mongoose =      require('mongoose');
+var User =          require('../models/User');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var users =  require('./routes/users');
+var db =     require('./routes/db');
 
 var mongoURI = 'mongodb://localhost:27017/imaginary_paddling';
 var mongoDB = mongoose.connect(mongoURI).connection;
@@ -82,7 +82,7 @@ passport.deserializeUser(function(id, callback){
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/register', register);
+app.use('/db', db);
 
 
 // catch 404 and forward to error handler
@@ -109,6 +109,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
+  throw err;
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,

@@ -5,7 +5,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var messageSchema = new Schema({
-    date: Date,
+    dateMs: Number,
+    date: String,
+    username: String,
     content: String
 });
 

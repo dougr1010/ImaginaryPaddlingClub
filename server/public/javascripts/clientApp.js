@@ -29,6 +29,10 @@ app.config(function($routeProvider,$locationProvider){
             templateUrl:'views/mytrips.html',
             controller: 'MyTripsController'
         })
+        .when('/selectedtrip',{
+            templateUrl:'views/selectedtrip.html',
+            controller: 'SelectedTripController'
+        })
         .when('/tripleader',{
             templateUrl:'views/tripleader.html',
             controller: 'TripLeaderController'

@@ -1,2 +1,22 @@
-<h1>Admin</h1>
+<h1>Admin Page</h1>
 <p>{{message}}</p>
+
+time now: {{timenow}}
+<br />
+other time: {{othertime}}
+<br />
+difference: {{difference}}
+<br />
+<br />
+
+<div class="createTrip">
+    Trip ID: <input ng-model="id" type="number"><br />
+    Link ID: <input ng-model="linkId" type="text"><br />
+    Trip Name: <input ng-model="trip" type="text"><br />
+    Trip Date: <input ng-model="dateInput" type="date"><br />
+    Trip Difficulty: <input ng-model="difficulty" type="text"><br />
+    Trip Description: <input ng-model="description" type="text"><br />
+    Trip Leader: <input ng-model="leader" type="text"><br />
+    <button ng-click="submitTrip()">Submit Trip</button>
+
+</div>

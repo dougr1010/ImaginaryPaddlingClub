@@ -11,7 +11,9 @@ var UserSchema = new Schema({
     password:{type: String, require: true},
     isTripLeader:{type: Boolean},
     isPresident:{type: Boolean},
-    isWebMaster:{type: Boolean}
+    isWebMaster:{type: Boolean},
+    leadingTrips:{type:Array},
+    takingTrips:{type:Array}
 });
 
 UserSchema.pre('save', function(next){
