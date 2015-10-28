@@ -58,5 +58,16 @@ app.config(function($routeProvider,$locationProvider){
         });
 
     $locationProvider.html5Mode(true);
-});
+
+
+
+
+    //$scope.showLoggedIn = ((typeof $rootScope.loggedInAs == 'undefined') || (typeof $rootScope.loggedInAs != 'string'));
+    //console.log('clientApp: showLoggedIn= ',$scope.showLoggedIn);
+
+
+
+
+
+    });
 

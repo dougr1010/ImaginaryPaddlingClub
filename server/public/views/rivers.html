@@ -1,13 +1,15 @@
-<h1>Rivers and Trip Descriptions</h1>
+<h2>Rivers and Trip Descriptions</h2>
 
 <div class="riverList">
     <ul>
-        <li ng-repeat="river in rivers | orderBy: river[3] track by $index">
-            <div id="{{river[1]}}">
-                {{river[0]}} - {{river[1]}} <br /> {{river[2]}}<br />
+        <li ng-repeat="river in rivers | orderBy:'dateMs'">
+            <div id="{{river.linkId}}">
+                {{river.date}} - {{river.trip}} <br />
+                Trip Leader: {{river.leader}}<br />
+                Trip Rating: {{river.difficulty}}<br />
+                {{river.description}}<br />
                 <button class="btn" ng-click="reqInfo()">Request Information</button>
-                <br />
-                <br />
+                <br /><br />
             </div>
         </li>
     </ul>

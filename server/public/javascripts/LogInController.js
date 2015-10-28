@@ -29,7 +29,7 @@ app.controller('LogInController', ['$scope', '$rootScope', '$http', '$location',
                 $rootScope.loggedInAs=$scope.username;
 
                 // get user data
-                var loggedInUser = $scope.username
+                var loggedInUser = $scope.username;
                 console.log('getting user profile from db for ',loggedInUser);
 
                 //works for getting all users

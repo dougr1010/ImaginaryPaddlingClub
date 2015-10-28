@@ -37,8 +37,8 @@ router.post('/reg', function(req, res, next){
         newUser.isTripLeader = false;
         newUser.isPresident = false;
         newUser.isWebMaster = false;
-        newUser.leadingTrips =[-1];
-        newUser.takingTrips =[-1];
+        newUser.leadingTrips =[];
+        newUser.takingTrips =[];
                  //was req.body
     Users.create(newUser, function(err, post){
         if(err) {

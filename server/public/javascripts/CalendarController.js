@@ -4,6 +4,6 @@
 app.controller('CalendarController', ['$scope', function($scope){
 
     console.log('reached the Calendar controller');
-    $scope.message = "Welcome to the Calendar page, yes, calendar";
+    //$scope.message = "Welcome to the Calendar page";
 
 }]);

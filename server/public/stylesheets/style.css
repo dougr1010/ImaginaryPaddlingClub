@@ -1,9 +1,48 @@
+html {
+  width: 960px;
+}
+
 body {
+  width: 960px;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: black;
+  background: bisque;
 }
 
+.header {
+  height: 150px;
+  background-color: lightgray;
+  margin-top: 0;
+  border: 1px solid black;
+}
+
+.nav {
+  margin-top: -20px;
+  text-align: center;
+}
+
+h1 {
+  font:44px Noteworthy, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+h2 {
+  font:28px Noteworthy, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h3 {
+  font:18px Noteworthy, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: -15px;
+
+}
 a {
   color: #00B7FF;
 }
@@ -11,4 +50,24 @@ a {
 .nav ul li{
   display: inline-block;
   margin: 5px;
+}
+
+table {
+  width: 80%;
+}
+th, td {
+  padding: 7px 10px 10px 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+th {
+  border-bottom: 1px solid black
+  border-top: 1px solid #999
+  text-align: left;
+}
+tr.even {
+  background-color: #efefef;
+}
+td {
+  text-align: right;
 }

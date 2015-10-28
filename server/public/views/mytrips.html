@@ -1,14 +1,32 @@
-<h1>MyTrips</h1>
+<h2>MyTrips</h2>
 <p>{{message}}</p>
 
 
 <div class="myTripList">
     <ul>
         <li ng-repeat="trip in tripsImTaking track by $index">
-            <div>
-                {{trip}}<br />
+            <div ng-click="showTripInfo()">
+                {{trip[0]}}<br />
                 <br />
             </div>
         </li>
     </ul>
+</div>
+
+<div class="selectedTrip">
+    {{date}} - {{tripName}}<br /><br />
+    Trip Leader: {{tripLeader}} - Trip Difficulty: ({{difficulty}})<br /><br />
+    {{description}}<br /><br />
+
+    Trip Information: <span ng-click="openAttachment()">{{attachments}}</span><br />
+    (PDFs will open in a viewer, DOCs will be sent to your downloads folder)<br /><br />
+
+    Map to Put-In: {{putInMap}}<br /><br />
+
+    Map of Shuttle Route: {{shuttleMap}}<br /><br />
+
+<!--this works
+    <a href="#" onclick="window.open('tripInfo/StraightRiverTripPacket.pdf', 'resizable', 'scrollbars');">MyPDF</a>
+-->
+
 </div>

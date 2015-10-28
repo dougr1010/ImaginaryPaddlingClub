@@ -10,16 +10,18 @@ var tripSchema = new Schema({
     trip: String,
     date: String,
     dateMs: Number,
+    difficulty: String,
     description: String,
     leader: String,
     attachments: Array,
     putInMap: String,
     shuttleMap: String,
-    attending: [{
-        username: String,
-        sent: String,
-        declined: String
-    }],
+    //attending: [{
+    //    username: String,
+    //    sent: String,
+    //    declined: String
+    //}]
+    attending:Array
 });
 
 var Trip = mongoose.model('trip',tripSchema);

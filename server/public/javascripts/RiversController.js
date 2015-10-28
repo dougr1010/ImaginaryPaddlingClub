@@ -10,39 +10,32 @@ app.controller('RiversController', ['$scope', '$rootScope', '$http', '$location'
     $scope.rivers = [];       //data sent to rivers page
     var listOfTrips = [];  //global on this page
     var numTrips = 0;      //global on this page
-    
-    console.log('getting trips from db');
+
+
+    //get and display list of trips in database
+    console.log('RiversController: getting trips from db');
     $http.get('db/getTrip').then(function(response) {
         console.log(response);
         listOfTrips=response;
-        numTrips = response.data.length;
-        for (var i=0;i<numTrips;i++){
-            var trip = response.data[i].trip;
-            var date = response.data[i].date;
-            var dateMs = response.data[i].dateMs;
-            var description=response.data[i].description;
-            var linkId = response.data[i].linkId;
-            var id = response.data[i]._id;
-            var attending = response.data[i].attending;
-            riverItem=[date, trip, description, dateMs, linkId, id, attending];
-            $scope.rivers.push(riverItem);
-            console.log('linkId: ',linkId)
-        }
+        $scope.rivers = response.data;
     });
+
 
     //respond to the Get Info button
     $scope.reqInfo = function(){
-        console.log('saw Request Info click');
-        console.log('rivers/number of trips: ',numTrips);
-        console.log('rivers/list of trips:');
-        console.log(listOfTrips);
-        console.log('logged in as: ',$rootScope.loggedInAs);
+        console.log('RiversController: saw Request Info click');
+        //console.log('RiversController: number of trips: ',numTrips);
+        //console.log('RiversController: list of trips:');
+        //console.log(listOfTrips);
+        //console.log('RiversController: logged in as: ',$rootScope.loggedInAs);
         console.log(this);
-        console.log($rootScope.loggedInAs,' is requesting information for: ', this.river[1]);
+        console.log('RiversController: ',$rootScope.loggedInAs,' is requesting information for: ', this.river._id);
+        console.log('RiversController: Logged in as: ', $rootScope.loggedInAs, " - typeof: ", typeof $rootScope.loggedInAs);
+        console.log('RiversController: Not logged in = ',($rootScope.loggedInAs == 'undefined'));
 
         //they must be logged in to request info
-        if($rootScope.loggedInAs == 'undefined') {
-            alert('Please register or sign in before requesting trip information.  Thanks :)');
+        if((typeof $rootScope.loggedInAs == 'undefined') || (typeof $rootScope.loggedInAs != 'string')) {
+            alert('Please register or sign in before requesting trip information.  Thank you!');
             $location.path('/loginorregister');
         } else {
             //add their username to the trip attendees array and update the database
@@ -55,10 +48,10 @@ app.controller('RiversController', ['$scope', '$rootScope', '$http', '$location'
                     sent: "not sent",
                     declined: "not declined"
                 };
-                    console.log('update: sending this:');
+                    console.log('RiversController: sending this to update the trip data:');
                     console.log(updateAttending);
                     $http({method:"POST", url:"/db/updateTripAdd", data:updateAttending}).then(
-                        console.log('added new request to attending list'))
+                        console.log('RiversController: added new request to trips/attending list'))
                 }
     }
 

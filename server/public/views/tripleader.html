@@ -1,31 +1,55 @@
-<h1>TripLeader Page</h1>
-<p>{{message}}</p><br />
-<p>{{message2}}</p><br />
-<p>{{message3}}</p><br />
-<p>{{message4}}</p>
+<h2>TripLeader Page</h2>
+<p>{{hello}}</p><br />
 
-{{date}}<br />
-{{trip}}<br />
-{{description}}<br />
+<h3>{{date}}</h3><br />
+<h3>{{trip}}</h3><br />
+{{description}}<br /><br />
 
-<p>Add Documents</p>
 
-<p>Requests</p>
+
+<!--
+<form action="#">
+    <input type="file" ng-model="addMeFile">
+    <button ng-click="submitFile()">Submit File</button>
+</form>
+-->
+
+
+
+<h3>Add Trip Documents</h3>
+<br />
+
+<form action="/db/attach" method="POST" enctype="multipart/form-data" class="contact-form">
+
+    <input ng-model="attachment" type="file" name="attachmentFilename"/>
+
+    <input ng-click="addAttachment()" type="submit" class="btn">
+
+</form>
+<br />
+
+
+
+<h3>Trip Information Requests</h3>
+
 <ul>
     <li ng-repeat="attendee in attending track by $index">
         <div id="attendees">
-            {{attendee.username}} {{attendee.sent}} {{attendee.declined}}
+            {{attendee.username}} ------ {{attendee.sent}}
             <button class="btn" ng-click="sendInfo()">Send</button>
-            <button class="btn" ng-click="decline()">Decline</button>
         </div>
     </li>
 
 </ul>
+<br />
 
-<p>Map to Put-In</p>
+<h3>Map to Put-In</h3>
 <div class="putinMap">
 
 </div>
+<br />
 
-<p>Map of Shuttle Route</p>
-<div class="shuttleMap"></div>
+<h3>Map of Shuttle Route</h3>
+<div class="shuttleMap">
+
+</div>

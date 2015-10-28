@@ -26,22 +26,25 @@
     </head>
 
     <body>
-        <h1>The Imaginary Paddling Club</h1>
-        <br />
+        <div class="header">
+            <h1>UpNorth Paddlers</h1>
 
-        <div class="nav">
-            <ul>
-                <li><a href="/">                 Home        </a></li>
-                <li><a href="/about">            About       </a></li>
-                <li><a href="/calendar">       Calendar      </a></li>
-                <li><a href="/rivers">          Rivers       </a></li>
-                <li><a href="/bulletin">    Bulletin Board   </a></li>
-                <li><a href="/mytrips">       My Trips       </a></li>
-                <li><a href="/tripleader">   Trip Leader     </a></li>
-                <li><a href="/admin">          Admin         </a></li>
-                <li><a href="/loginorregister"> Log in </a></li>
-            </ul>
+            <div class="nav">
+                <ul>
+                    <li><a href="/">                 Home        </a></li>
+                    <li><a href="/about">            About       </a></li>
+                    <li><a href="/calendar">       Calendar      </a></li>
+                    <li><a href="/rivers">          Rivers       </a></li>
+                    <li><a href="/bulletin" ng-show="showLoggedIn">    Bulletin Board   </a></li>
+                    <li><a href="/mytrips">       My Trips       </a></li>
+                    <li><a href="/tripleader">   Trip Leader     </a></li>
+                    <li><a href="/admin">          Admin         </a></li>
+                     <li><a href="/loginorregister"> Log in </a></li>
+                </ul>
+            </div>
         </div>
+
+
 
         <div id="main">
             <ng-view>
