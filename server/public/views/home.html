@@ -1,4 +1,4 @@
-{{message2}} - {{message3}} - {{message4}} - {{message5}}<br /><br />
+  {{message2}} - {{message3}} - {{message4}} - {{message5}}<br /><br />
 
 <h2>Welcome!</h2>
 
@@ -15,9 +15,11 @@
 <button ng-click="reqInfo()">Request Information</button>
 
 <h2>Club Messages</h2>
-{{homeMessage}} <br /><br />
+{{homeMessage}} <br />
 
-<p      ng-show="showMessageEdit">Edit Club Messages here:</p><br />
-<input  ng-show="showMessageEdit" type="text" ng-model="messageEditBox"><br />
-<button ng-show="showMessageEdit" ng-click="editMessage()">Edit</button>
+<p      ng-show="showMessageEdit">You can edit Club Messages here:</p>
+<!--input  ng-show="showMessageEdit" type="text" ng-model="messageEditBox"-->
+<textarea ng-show="showMessageEdit" ng-model="messageEditBox" cols='100' rows='4'
+          placeholder='If you want, you can copy and past the description text here to start.'></textarea><br />
+<!--button ng-show="showMessageEdit" ng-click="editMessage()">Edit</button-->
 <button ng-show="showMessageEdit" ng-click="saveMessage()">Save</button>

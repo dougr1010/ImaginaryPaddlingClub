@@ -2,6 +2,12 @@
  * Created by dougritzinger on 10/22/15.
  */
 var express = require('express');
+var path = require('path');
+var fs = require('fs');
+var multer =  require('multer');
+var upload = multer({dest: 'server/public/tripInfo/'});
+
+
 var app = express();
 var router = express.Router();
 //var bodyParser = require('bodyParser');
@@ -12,7 +18,49 @@ var HomeMessage = require('../../models/homeMessage');
 
 
 
-/* write a trip to db */
+// upload a trip attachment file //
+
+//.......................................
+router.post('/addAttachment', upload.single('file'), function(request, response, next) {
+    console.log('hit db/addAttachment endpoint.........................')
+    console.log('Body', request.body);
+    console.log('File', request.file);
+    var tripId = request.body.tripId;
+    var filename = request.file.filename;
+    var originalname = request.file.originalname;
+    console.log('tripId: ', tripId);
+    console.log('filename: ', filename);
+    console.log('originalname: ', originalname);
+    var fileArrayItem = [originalname, filename];
+    console.log('fileArrayItem: ', fileArrayItem);
+//    createObj.img = request.file;
+//    Swatches.create(createObj, function(err, post) {
+//        response.send('ok');
+//    })
+    //response.send(200);
+
+    //add the new trip info file to the attachments array for this trip
+    //   -to get around the file naming problem, save the original filename
+    //    along with the generated filename in array.
+    //   -the original name will be used to display, the generated name will
+    //    be used to open and view the file.
+    Trip.findOneAndUpdate(
+        {_id:tripId},
+        {$push:{attachments:fileArrayItem}},
+        {safe:true,upsert:true},
+        function(err){
+            if(err) console.log(err);
+            response.sendStatus(200);
+    });
+});
+
+
+
+
+
+
+
+// write a trip to db //
 //..................................................
 router.post('/addTrip', function (request, response) {
     console.log('hit /db/addTrip endpoint...........................');
@@ -59,6 +107,76 @@ router.post('/updateTripAdd', function(request, response){
         response.sendStatus(200);
     })
 });
+
+
+
+
+
+
+
+
+//
+//update the trip description
+//...............................................................
+router.post('/updateTripDescription', function(request, response){
+    console.log('hit /db/updateTripDescription endpoint......................');
+    console.log(request.body);
+    var id=request.body.id;
+    var newDescription = request.body.description;
+    console.log('db/updateTripDescription: id to update: ',id);
+    console.log('db/updateTripDescription: new description: ',newDescription)
+
+    //............................................................
+    Trip.findByIdAndUpdate(id, {$set:{description:newDescription}},
+        function(err){
+            if(err) console.log(err);
+            response.sendStatus(200);
+    });
+});
+
+
+
+//
+//add/update put in map
+//...................................................
+router.post('/putInMap', function(request, response){
+    console.log('hit /db/putInMap endpoint......................');
+    console.log(request.body);
+    var id=request.body.id;
+    var newPutInMap = request.body.putInMapString;
+    console.log('db/putInMap: id to update: ',id);
+    console.log('db/putInMap: new putInMap: ',newPutInMap);
+
+    //......................................................
+    Trip.findByIdAndUpdate(id, {$set:{putInMap:newPutInMap}},
+        function(err){
+            if(err) console.log(err);
+            response.sendStatus(200);
+    });
+});
+
+
+//
+//add/update put in map
+//........................................................
+    router.post('/shuttleMap', function(request, response){
+        console.log('hit /db/shuttleMap endpoint......................');
+        console.log(request.body);
+        var id=request.body.id;
+        var newShuttleMap = request.body.shuttleMapString;
+        console.log('db/shuttleMap: id to update: ',id);
+        console.log('db/shuttleMap: new shuttleMap: ',newShuttleMap);
+
+        //..........................................................
+        Trip.findByIdAndUpdate(id, {$set:{shuttleMap:newShuttleMap}},
+            function(err){
+                if(err) console.log(err);
+                response.sendStatus(200);
+            });
+    });
+
+
+
 
 
 

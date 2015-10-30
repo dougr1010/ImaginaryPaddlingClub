@@ -5,13 +5,29 @@ app.controller('HomeController', ['$scope', '$rootScope', '$http', function($sco
 
     console.log('reached the home controller');
     console.log('HomeController: Global user data: ',$rootScope.loggedInAs, $rootScope.isTripLeader, $rootScope.isPresident, $rootScope.isWebMaster);
-    $scope.message = 'Welcome to the Home Page';
+    console.log('HomeController: LoggedIn/TripLeader/WebMaster: ',$scope.LoggedIn, $scope.TripLeader, $scope.WebMaster);
+
+    //$scope.message = 'Welcome to the Home Page';
     $scope.message2 = 'Hello '+ $rootScope.loggedInAs;
-    $scope.message3 = 'Trip leader: ' + $rootScope.isTripLeader;
+    $scope.message3 = 'Trip Leader: ' + $rootScope.isTripLeader;
     $scope.message4 = 'Club President: ' + $rootScope.isPresident;
     $scope.message5 = 'WebMaster: ' + $rootScope.isWebMaster;
 
     $scope.showMessageEdit = ($rootScope.isPresident || $rootScope.isTripLeader || $rootScope.isWebMaster);
+
+
+
+
+
+//doesn't work
+    console.log('$rootScope.loggedInAs: ',$rootScope.loggedInAs, 'typeof $rootScope.loggedInAs: ', (typeof $rootScope.loggedInAs));
+    $scope.LoggedIn = (($rootScope.loggedInAs != 'undefined') && (typeof $rootScope.loggedInAs == 'string'));
+
+    console.log('$scope.LoggedIn: ', $scope.LoggedIn);
+
+
+
+
 
 
 
@@ -37,9 +53,9 @@ app.controller('HomeController', ['$scope', '$rootScope', '$http', function($sco
             }
         }
 
-        var nextTripDate = response.data[nearestTripIndex].date;
+        //var nextTripDate = response.data[nearestTripIndex].date;
 
-        $scope.nextTripDate = nextTripDate;
+        $scope.nextTripDate = response.data[nearestTripIndex].date;
         $scope.nextTripTitle = response.data[nearestTripIndex].trip;
         $scope.nextTrip = response.data[nearestTripIndex].description;
         $scope.mongoId = response.data[nearestTripIndex]._id;

@@ -1,9 +1,7 @@
-html {
-  width: 960px;
-}
+
 
 body {
-  width: 960px;
+  width-max: 960px;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: black;
@@ -40,9 +38,9 @@ h3 {
   font:18px Noteworthy, Helvetica, Arial, sans-serif;
   font-weight: bold;
   margin-top: 0;
-  margin-bottom: -15px;
-
+  margin-bottom: 0;
 }
+
 a {
   color: #00B7FF;
 }
@@ -70,4 +68,12 @@ tr.even {
 }
 td {
   text-align: right;
+}
+
+.docLinks {
+  color: #00B7FF;
+
+}
+.docLinks:hover {
+  cursor: pointer;
 }

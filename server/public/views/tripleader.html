@@ -5,23 +5,33 @@
 <h3>{{trip}}</h3><br />
 {{description}}<br /><br />
 
+You can edit the trip description here:<br />
+<!--input type="text" ng-model="editTripDescription" size='100'><br /-->
+<textarea type="text" ng-model="editedTripDescription" cols='100' rows='4' placeholder='If you want, you can copy and past the description text here to start.'></textarea><br />
+<button ng-click="saveTripDescriptionEdits()">Save Edits</button>
+<br /><br />
 
 
-<!--
-<form action="#">
-    <input type="file" ng-model="addMeFile">
-    <button ng-click="submitFile()">Submit File</button>
-</form>
+
+<!-- add display current trip documents here
+<ul>
+    <li ng-repeat="item in listItems track by $index">
+        <div id="tlListItems">
+            {{item}}
+        </div>
+    </li>
+</ul>
+
 -->
-
 
 
 <h3>Add Trip Documents</h3>
 <br />
 
-<form action="/db/attach" method="POST" enctype="multipart/form-data" class="contact-form">
 
-    <input ng-model="attachment" type="file" name="attachmentFilename"/>
+<form method="POST" enctype="multipart/form-data" class="contact-form">
+
+    <input type="file" ng-model="file" ngf-select="" ng-model="picFile" name="file" accept="" required="" class="ng-pristine ng-invalid ng-invalid-required"/>
 
     <input ng-click="addAttachment()" type="submit" class="btn">
 
@@ -39,17 +49,22 @@
             <button class="btn" ng-click="sendInfo()">Send</button>
         </div>
     </li>
-
 </ul>
 <br />
 
 <h3>Map to Put-In</h3>
 <div class="putinMap">
+    Paste the Google Maps URL for the Put In location here:<br />
+    <input type="text" ng-model="putInMapString"><br />
+    <button ng-click="savePutInMap()">Save</button>
 
 </div>
 <br />
 
 <h3>Map of Shuttle Route</h3>
 <div class="shuttleMap">
+    Paste the Google Maps URL for the Shuttle Route here:<br />
+    <input type="text" ng-model="shuttleMapString"><br />
+    <button ng-click="saveShuttleMap()">Save</button>
 
 </div>

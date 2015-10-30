@@ -83,7 +83,7 @@ passport.deserializeUser(function(id, callback){
 app.use('/', routes);
 app.use('/users', users);
 app.use('/db', db);
-
+app.use('*', routes);  //allows for page refreshes
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

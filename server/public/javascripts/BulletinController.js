@@ -41,6 +41,7 @@ function getMessages() {
             } else {
                 console.log('There was an error saving this message')
             }
+            $scope.messageContent = "";
         });
 
     }
