@@ -4,7 +4,7 @@
 <div class="myTripList">
     <ul>
         <li ng-repeat="trip in tripsImTaking track by $index">
-            <div ng-click="showTripInfo()">
+            <div class="myTripTriplist" ng-click="showTripInfo()">
                 {{trip[0]}}<br />
                 <br />
             </div>
@@ -21,7 +21,7 @@
         <ul>
             <li ng-repeat="attachment in attachments track by $index">
                 <div class="docLinks" ng-click="openAttachment()">
-                    {{attachment[0]}}<br /><br />
+                    {{attachment[0]}}<span class="savedAs"> ... saved as ... </span>{{attachment[1]}}<br /><br />
                 </div>
             </li>
         </ul>

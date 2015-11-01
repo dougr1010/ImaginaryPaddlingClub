@@ -1,7 +1,9 @@
 /**
  * Created by dougritzinger on 10/20/15.
  */
-app.controller('RiversController', ['$scope', '$rootScope', '$http', '$location', function($scope, $rootScope, $http, $location){
+app.controller('RiversController', ['$scope', '$rootScope', '$http', '$location', '$anchorScroll', function($scope, $rootScope, $http, $location, $anchorScroll){
+
+
 
     console.log('reached the Rivers controller');
     $scope.message = "Welcome to the Rivers page.";
@@ -17,7 +19,7 @@ app.controller('RiversController', ['$scope', '$rootScope', '$http', '$location'
     $http.get('db/getTrip').then(function(response) {
         console.log(response);
         listOfTrips=response;
-        $scope.rivers = response.data;
+        $scope.rivers = response.data; //this display trip data on html page
     });
 
 
@@ -43,7 +45,7 @@ app.controller('RiversController', ['$scope', '$rootScope', '$http', '$location'
                 var newAttendingArrayItem = {'username':$rootScope.loggedInAs,'sent':'not sent','declined':'not declined'};
                 //update the requested trip with new attendee
                 var updateAttending = {
-                    id : this.river[5],
+                    id : this.river._id,
                     username: $rootScope.loggedInAs,
                     sent: "not sent",
                     declined: "not declined"

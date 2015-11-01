@@ -39,9 +39,9 @@ $scope.submitTrip = function(){
         //tripData.attachments[0] = "I am attachment 1";
         //tripData.attachments[1] = "I am attachment 2";
         //tripData.attachments[2] = "I am attachment 3";
-        tripData.putInMap       = "I am put in map info";
-        tripData.shuttleMap     = "I am shuttle map info";
-        tripData.attending      = []; //{username:"-1",sent:false,declined:false}];
+        tripData.putInMap       = "https://www.google.com/maps/@46.250736,-93.5515915,6.44z?hl=en";
+        tripData.shuttleMap     = "https://www.google.com/maps/@46.250736,-93.5515915,6.44z?hl=en";
+        tripData.attending      = [];
 
     console.log(tripData);
 

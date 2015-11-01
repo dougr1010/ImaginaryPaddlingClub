@@ -157,7 +157,7 @@ router.post('/putInMap', function(request, response){
 
 
 //
-//add/update put in map
+//add/update shuttle map
 //........................................................
     router.post('/shuttleMap', function(request, response){
         console.log('hit /db/shuttleMap endpoint......................');

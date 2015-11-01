@@ -71,16 +71,16 @@ app.controller('IndexNav', ['$scope', '$rootScope', function($scope, $rootScope)
     console.log('IndexNav controller running');
 
     //ng-show the Bulletin Board and myTrips pages only if logged in
-    //$scope.LoggedIn = (($rootScope.loggedInAs != 'undefined') && (typeof $rootScope.loggedInAs == 'string'));
+    //$rootScope.LoggedIn = (($rootScope.loggedInAs != 'undefined') && (typeof $rootScope.loggedInAs == 'string'));
 
     //ng-show trip leader page nav only if a trip leader
-    $scope.TripLeader = (($scope.LoggedIn == true) ||
-                         ($rootScope.isTripLeader == true));
+    //$rootScope.TripLeader = (($rootScope.LoggedIn == true) ||
+    //                     ($rootScope.isTripLeader == true));
 
     //hg-show the admin page nav only if WebMaster
-    $scope.WebMaster = (($scope.LoggedIn) || ($rootScope.isWebMaster == true));
+    //$rootScope.WebMaster = (($rootScope.LoggedIn) || ($rootScope.isWebMaster == true));
 
-    console.log('clientApp: $scope.LoggedIn/$scope.TripLeader/$scope.WebMaster: ',$scope.LoggedIn, $scope.TripLeader, $scope.WebMaster);
+    console.log('clientApp: $scope.LoggedIn/$scope.TripLeader/$scope.WebMaster: ',$rootScope.LoggedIn, $rootScope.TripLeader, $rootScope.WebMaster);
 
 }]);
 

@@ -1,16 +1,17 @@
-<h2>Register Page</h2>
-<p>{{message}}</p>
+<h2>Register</h2>
 
 
-    <div>
-        <label for="username">Username</label>
+
+<form ng-submit="register()">
+    <div class="loginBox">
+        <label for="username" class="title">Username</label>
         <input type="text" ng-model= "username" name="username" id="username"/>
     </div>
-    <div>
-        <label for="password">Password</label>
+    <div class="loginBox">
+        <label for="password" class="title">Password</label>
         <input type="text" ng-model="password" name="password" id="password"/>
     </div>
     <div>
-        <input ng-click="register()" type="submit" value="Register"/>
+        <input type="submit" class="loginRegister" value="Register"/>
     </div>
-
+</form>

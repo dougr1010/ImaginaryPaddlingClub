@@ -12,6 +12,7 @@ app.controller('HomeController', ['$scope', '$rootScope', '$http', function($sco
     $scope.message3 = 'Trip Leader: ' + $rootScope.isTripLeader;
     $scope.message4 = 'Club President: ' + $rootScope.isPresident;
     $scope.message5 = 'WebMaster: ' + $rootScope.isWebMaster;
+    $scope.message6 = 'LoggedIn: ' + $rootScope.LoggedIn;
 
     $scope.showMessageEdit = ($rootScope.isPresident || $rootScope.isTripLeader || $rootScope.isWebMaster);
 
@@ -20,8 +21,8 @@ app.controller('HomeController', ['$scope', '$rootScope', '$http', function($sco
 
 
 //doesn't work
-    console.log('$rootScope.loggedInAs: ',$rootScope.loggedInAs, 'typeof $rootScope.loggedInAs: ', (typeof $rootScope.loggedInAs));
-    $scope.LoggedIn = (($rootScope.loggedInAs != 'undefined') && (typeof $rootScope.loggedInAs == 'string'));
+    //console.log('$rootScope.loggedInAs: ',$rootScope.loggedInAs, 'typeof $rootScope.loggedInAs: ', (typeof $rootScope.loggedInAs));
+    //$scope.LoggedIn = (($rootScope.loggedInAs != 'undefined') && (typeof $rootScope.loggedInAs == 'string'));
 
     console.log('$scope.LoggedIn: ', $scope.LoggedIn);
 
@@ -70,6 +71,9 @@ app.controller('HomeController', ['$scope', '$rootScope', '$http', function($sco
         $scope.homeMessageId = response.data[0]._id;
         console.log('HomeController: ',$scope.homeMessageId);
     });
+
+
+
 
 // Handle information request
     $scope.reqInfo = function(){

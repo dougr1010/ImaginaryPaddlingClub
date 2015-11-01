@@ -10,46 +10,53 @@ app.controller('TripLeaderController', ['$scope','$rootScope','$http', "Upload",
     $scope.description="";
 
     //get trip leader's profile and find out what trips they lead
+    function loadThisPage() {
+        $http.get('users/getUser/' + $rootScope.loggedInAs).then(function (response) {
+            console.log(response.data);
+            tripLeaderProfile = response.data;
 
-    $http.get('users/getUser/'+$rootScope.loggedInAs).then(function(response) {
-        console.log(response.data);
-        tripLeaderProfile = response.data;
+            console.log('TripLeaderController: tripLeaderProfile');
+            console.log(tripLeaderProfile);
+            var numTrips = tripLeaderProfile.leadingTrips.length;
+            var tripIds = tripLeaderProfile.leadingTrips;
+            var tripId = tripIds[0];
+            console.log('TripLeaderController: numTrips: ', numTrips);
+            console.log('TripLeaderController: trips array: ', tripIds);
+            console.log('TripLeaderController: leading trip: ', tripId);
+            console.log('TripLeaderController: getting trip, ', tripId);
 
-        console.log('TripLeaderController: tripLeaderProfile');
-        console.log(tripLeaderProfile);
-        var numTrips = tripLeaderProfile.leadingTrips.length;
-        var tripIds = tripLeaderProfile.leadingTrips;
-        var tripId = tripIds[0];
-        console.log('TripLeaderController: numTrips: ',numTrips);
-        console.log('TripLeaderController: trips array: ',tripIds);
-        console.log('TripLeaderController: leading trip: ',tripId);
-        console.log('TripLeaderController: getting trip, ', tripId);
+            //get the data for that trip and display it
+            //$http.get('db/getTrip/'+ tripId).then(function(response) {
+            $http({
+                method: "POST",  //really a get with params in request body
+                url: 'db/getTripByParam',
+                data: {id: tripId}
+            }).then(function (response) {
+                console.log(response);
+                console.log('TripLeaderController: here is the trip being led:');
+                console.log(response);
+                $scope.tripID = response.data._id;
+                $scope.date = response.data.date;
+                $scope.trip = response.data.trip;
+                $scope.description = response.data.description;
+                $scope.attachments = response.data.attachments;
+                $scope.attending = response.data.attending;
+                console.log('TripLeaderController: here is the attending array:');
+                console.log($scope.attending);
 
-        //get the data for that trip and display it
-        //$http.get('db/getTrip/'+ tripId).then(function(response) {
-        $http({
-            method: "POST",  //really a get with params in request body
-            url: 'db/getTripByParam',
-            data: {id : tripId}
-        }).then(function(response){
-            console.log(response);
-            console.log('TripLeaderController: here is the trip being led:');
-            console.log(response);
-            $scope.tripID = response.data._id;
-            $scope.date =response.data.date;
-            $scope.trip =response.data.trip;
-            $scope.description = response.data.description;
-            $scope.attending = response.data.attending;
-            console.log('TripLeaderController: here is the attending array:');
-            console.log($scope.attending);
+                $scope.putInMap = response.data.putInMap;
+                $scope.shuttleMap = response.data.shuttleMap;
+                console.log('TripLeaderController: mapToPutIn: ',$scope.putInMap);
+                console.log('TripLeaderController: mapOfShuttle: ',$scope.shuttleMap);
 
-            //set up the trip data edit box default
-            console.log('TripLeaderController: trip description: ',$scope.description);
-            $scope.editTripDescription = $scope.description; //load the db description as initial text
+                //set up the trip data edit box default
+                console.log('TripLeaderController: trip description: ', $scope.description);
+                $scope.editTripDescription = $scope.description; //load the db description as initial text
 
+            });
         });
-    });
-
+    }
+    loadThisPage();
 
     ////////////// Done with page load, now respond to buttons///////////
 
@@ -77,7 +84,6 @@ app.controller('TripLeaderController', ['$scope','$rootScope','$http', "Upload",
         });
         console.log('TripLeaderController: Why doesn\'t this execute1?');
     };
-    console.log('TripLeaderController: Why doesn\'t this execute2?');
 
 
     /////////////////////////////////
@@ -139,7 +145,7 @@ app.controller('TripLeaderController', ['$scope','$rootScope','$http', "Upload",
                 console.log('TripLeaderController: update completed');
             });
         });
-    }
+    };
 
 
     ////////////////////////////////////////////
@@ -164,6 +170,10 @@ app.controller('TripLeaderController', ['$scope','$rootScope','$http', "Upload",
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
+        console.log('TripLeaderController: reloading page after adding attachment');
+        loadThisPage();
+        console.log('TripLeaderController: page should be reloaded');
+
     };
 
 

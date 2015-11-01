@@ -8,9 +8,9 @@ app.controller('LogInController', ['$scope', '$rootScope', '$http', '$location',
 
 
     $scope.logIn = function() {
-        console.log('saw Login click');
-        console.log('username: ', $scope.username);
-        console.log('password: ', $scope.password);
+        console.log('LoginController: saw Login click');
+        console.log('LoginController: username: ', $scope.username);
+        console.log('LoginController: password: ', $scope.password);
 
         var jstring = {};
         jstring.username = $scope.username;
@@ -21,16 +21,16 @@ app.controller('LogInController', ['$scope', '$rootScope', '$http', '$location',
             url: "users/login",
             data: jstring
         }).then(function (resp) {
-            console.log('client/response/: ');
+            console.log('LoginController: client/response/: ');
             console.log(resp.data);
             //if the login attempt succeeded
             if (resp.data=="OK") {
-                console.log('Logged in username: ',$scope.username);
+                console.log('LoginController: Logged in username: ',$scope.username);
                 $rootScope.loggedInAs=$scope.username;
 
                 // get user data
                 var loggedInUser = $scope.username;
-                console.log('getting user profile from db for ',loggedInUser);
+                console.log('LoginController: getting user profile from db for ',loggedInUser);
 
                 //works for getting all users
                 //$http.get('users/getUser').then(function(response){
@@ -52,27 +52,35 @@ app.controller('LogInController', ['$scope', '$rootScope', '$http', '$location',
                     //console.log($rootScope.isPresident);
                     //console.log($rootScope.isWebMaster);
 
+                    //ng-show the Bulletin Board and myTrips pages only if logged in
+                    $rootScope.LoggedIn = (($rootScope.loggedInAs != 'undefined') && (typeof $rootScope.loggedInAs == 'string'));
+
+                    //ng-show trip leader page nav only if a trip leader
+                    $rootScope.TripLeader = (($rootScope.LoggedIn == true) &&
+                    ($rootScope.isTripLeader == true));
+
+                    //hg-show the admin page nav only if WebMaster
+                    $rootScope.WebMaster = (($rootScope.LoggedIn) && ($rootScope.isWebMaster == true));
+
+                    console.log('LogInController: $rootScope.LoggedIn/$rootScope.TripLeader/$rootScope.WebMaster: ',$rootScope.LoggedIn, $rootScope.TripLeader, $rootScope.WebMaster);
+
+                    alert("Thank you for logging in!");
+                    $location.path('/home');
+
                 });
+                    //.then(
+                    //$http.get('db/getHomeMessage').then(function(response) {
+                    //console.log('LoginController: executing getHomeMessage just as a delaying tactic')
+                    //console.log(response);
+                    //}));
 
 
-                //$http({
-                //     method: "GET",
-                //     url: "users/getUser",
-                //     params:{username:loggedInUser}}
-                // ).then(function(response) {
-                //    console.log('get logged in userdata');
-                //    console.log(response);
-                //    $rootScope.loggedInIsTripLeader = " ";
-                //    $rootScope.loggedInIsPresident = " ";
-                //    $rootScope.loggedInIsWebmaster =" ";
-                //});
 
-                alert("Thank you for logging in!");
-                $location.path('/home');
+
             }
             //Otherwise, if the attempt failed
             else {
-                console.log('client/else:');
+                console.log('LoginController: client/else:');
                 console.log(resp);
                 alert("Login attempt failed, please try again");
             }

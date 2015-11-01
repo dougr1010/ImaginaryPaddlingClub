@@ -1,25 +1,27 @@
-  {{message2}} - {{message3}} - {{message4}} - {{message5}}<br /><br />
-
+<div>
 <h2>Welcome!</h2>
+    {{message2}}<br />
+    {{message3}}<br />
+    {{message4}}<br />
+    {{message5}}<br />
+    {{message6}}<br />
 
 <p>Welcome to the UpNorth Paddlers club.  We are an organization of paddlers who enjoy getting together to explore
     and paddle the many rivers in the Minnesota, Wisconsin and Northern Iowa.  We have trips on both flat water and
     whitewater throughout the Spring, Summer, and Fall.  Take a look at the calendar, explore the trip descriptions,
     and <em>come paddle with us!</em></p>
 
+
 <h2>Our Next Trip</h2>
-<h3>{{nextTripDate}}</h3>
-<br />
-<h3>{{nextTripTitle}}</h3>
-<br />{{nextTrip}}
-<button ng-click="reqInfo()">Request Information</button>
+<h3 class="R20">{{nextTripTitle}} on {{nextTripDate}}</h3>
+<p class="noBottomMargin">{{nextTrip}}</p>
+<button class="btnHome" ng-click="reqInfo()">Request Information</button>
 
 <h2>Club Messages</h2>
-{{homeMessage}} <br />
+<p>{{homeMessage}}</p> <br />
 
 <p      ng-show="showMessageEdit">You can edit Club Messages here:</p>
-<!--input  ng-show="showMessageEdit" type="text" ng-model="messageEditBox"-->
-<textarea ng-show="showMessageEdit" ng-model="messageEditBox" cols='100' rows='4'
+<textarea ng-show="showMessageEdit" id="homeMessageBox" ng-model="messageEditBox" cols='100' rows='4'
           placeholder='If you want, you can copy and past the description text here to start.'></textarea><br />
-<!--button ng-show="showMessageEdit" ng-click="editMessage()">Edit</button-->
 <button ng-show="showMessageEdit" ng-click="saveMessage()">Save</button>
+</div>

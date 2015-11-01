@@ -1,16 +1,19 @@
 <h2>Log In</h2>
-<p>{{message}}</p>
+<br />
 
-
-    <div>
-        <label for="username">Username</label>
-        <input ng-model="username" type="text" name="username" id="username"/>
+<form ng-submit="logIn()">
+    <div class="loginBox">
+        <label for="username" class="title">Username:</label>
+        <input ng-model="username" class="user"type="text" name="username" id="username"/>
     </div>
-    <div>
-        <label for="password">Password</label>
+
+    <div class="loginBox">
+        <label for="password" class="title">Password:</label>
         <input ng-model="password" type="text" name="text" id="password"/>
     </div>
+
     <div>
-        <input ng-click="logIn()" type="submit" value="Log In"/>
+        <input type="submit" class="loginRegister" value="Log In"/>
     </div>
+</form>
 

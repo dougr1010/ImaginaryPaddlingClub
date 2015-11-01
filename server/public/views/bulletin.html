@@ -1,9 +1,8 @@
 <h2>The UpNorth Bulletin Board</h2>
-<p>{{message}}</p>
 
 <div class="messageList">
     <ul>
-        <li ng-repeat="message in messages | orderBy: message.dateMs track by $index">
+        <li class="bulletinList" ng-repeat="message in messages | orderBy: message.dateMs track by $index">
             <div>
                 {{message.date}} - {{message.username}} <br /> {{message.content}}<br />
                 <br />
@@ -13,7 +12,7 @@
 </div>
 
 <div class="messageInput">
-    What's on your mind?
-    <input ng-model="messageContent" type="text">
-    <button ng-click="SubmitMessage()">Submit Message</button>
+    <p>What's on your mind?</p>
+    <input style="width: 200px;" ng-model="messageContent" type="text"><br />
+    <button class="btnBulletin" ng-click="SubmitMessage()">Submit Message</button>
 </div>
