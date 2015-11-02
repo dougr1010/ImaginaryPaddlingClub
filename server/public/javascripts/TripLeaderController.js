@@ -169,10 +169,11 @@ app.controller('TripLeaderController', ['$scope','$rootScope','$http', "Upload",
         }, function (evt) {
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        }).then(function(){
+            console.log('TripLeaderController: reloading page after adding attachment');
+            loadThisPage();
+            console.log('TripLeaderController: page should be reloaded');
         });
-        console.log('TripLeaderController: reloading page after adding attachment');
-        loadThisPage();
-        console.log('TripLeaderController: page should be reloaded');
 
     };
 

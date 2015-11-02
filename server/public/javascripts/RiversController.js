@@ -54,7 +54,9 @@ app.controller('RiversController', ['$scope', '$rootScope', '$http', '$location'
                     console.log(updateAttending);
                     $http({method:"POST", url:"/db/updateTripAdd", data:updateAttending}).then(
                         console.log('RiversController: added new request to trips/attending list'))
-                }
+
+                        alert('Thank you for your request, it has been sent to the trip leader.')
+        }
     }
 
 

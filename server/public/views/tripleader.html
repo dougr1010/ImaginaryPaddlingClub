@@ -1,13 +1,13 @@
-<h2>TripLeader Page</h2>
+<h2>TripLeader Page</h2><br />
 
 <h3>{{date}}</h3><br />
 <h3>{{trip}}</h3><br />
-{{description}}<br /><br />
+<p>{{description}}</p><br />
 
 You can edit the trip description here:<br />
 <!--input type="text" ng-model="editTripDescription" size='100'><br /-->
 <textarea type="text" ng-model="editedTripDescription" cols='100' rows='4' placeholder='If you want, you can copy and past the description text here to start.'></textarea><br />
-<button class="btnNorm" saveTripDescriptionEdits()">Save Edits</button>
+<button class="btnNorm" ng-click="saveTripDescriptionEdits()">Save Edits</button>
 <br /><br />
 
 
