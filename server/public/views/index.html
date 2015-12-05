@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
 
+    <head>
         <meta charset="UTF-8">
         <title>The Imaginary Paddling Club Website</title>
         <link href="/stylesheets/style.css" rel="stylesheet">
 
-        <script src="/vendors/angular/angular.min.js">                   </script>
-        <script src="/vendors/angular/angular-route.min.js">             </script>
+        <script src="/vendors/angular/angular.min.js"></script>
+        <script src="/vendors/angular/angular-route.min.js"></script>
         <script src="/vendors/ng-file-upload/dist/ng-file-upload.min.js"></script>
 
-        <script src="/javascripts/clientApp.js">                         </script>
-        <script src="/javascripts/HomeController.js">                    </script>
-        <script src="/javascripts/AboutController.js">                   </script>
-        <script src="/javascripts/CalendarController.js">                </script>
-        <script src="/javascripts/RiversController.js">                  </script>
-        <script src="/javascripts/BulletinController.js">                </script>
-        <script src="/javascripts/MyTripsController.js">                 </script>
-        <script src="/javascripts/SelectedTripController.js">            </script>
-        <script src="/javascripts/TripLeaderController.js">              </script>
-        <script src="/javascripts/AdminController.js">                   </script>
-        <script src="/javascripts/LoginOrRegisterController.js">         </script>
-        <script src="/javascripts/LogInController.js">                   </script>
-        <script src="/javascripts/RegisterController.js">                </script>
+        <script src="/javascripts/clientApp.js"></script>
+        <script src="/javascripts/HomeController.js"></script>
+        <script src="/javascripts/AboutController.js"></script>
+        <script src="/javascripts/CalendarController.js"></script>
+        <script src="/javascripts/RiversController.js"></script>
+        <script src="/javascripts/BulletinController.js"></script>
+        <script src="/javascripts/MyTripsController.js"></script>
+        <script src="/javascripts/TripLeaderController.js"></script>
+        <script src="/javascripts/AdminController.js"></script>
+        <script src="/javascripts/LoginOrRegisterController.js"></script>
+        <script src="/javascripts/LogInController.js"></script>
+        <script src="/javascripts/RegisterController.js"></script>
 
         <base href="/">
     </head>
@@ -37,10 +37,10 @@
                     <li><a href="/about">            About        </a></li>
                     <li><a href="/calendar">       Calendar       </a></li>
                     <li><a href="/rivers">          Rivers        </a></li>
-                    <li ng-show="$root.LoggedIn"><a href="/bulletin" >    Bulletin Board   </a></li>  <!--" -->
-                    <li ng-show="$root.LoggedIn"><a href="/mytrips">         My Trips      </a></li>  <!-- -->
-                    <li ng-show="$root.TripLeader"><a href="/tripleader">    Trip Leader     </a></li>  <!-- -->
-                    <li ng-show="$root.WebMaster"><a href="/admin">           Admin         </a></li>  <!-- -->
+                    <li ng-show="$root.LoggedIn"><a href="/bulletin" >    Bulletin Board   </a></li>
+                    <li ng-show="$root.LoggedIn"><a href="/mytrips">         My Trips      </a></li>
+                    <li ng-show="$root.TripLeader"><a href="/tripleader">    Trip Leader     </a></li>
+                    <li ng-show="$root.WebMaster"><a href="/admin">           Admin         </a></li>
                     <li><a href="/loginorregister"> Log in        </a></li>
                 </ul>
             </div>

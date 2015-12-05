@@ -4,6 +4,5 @@
 app.controller('LoginOrRegisterController', ['$scope', function($scope){
 
     console.log('reached the Log In or Register controller');
-    $scope.message = "Welcome to the Log In or Register Page.";
 
 }]);

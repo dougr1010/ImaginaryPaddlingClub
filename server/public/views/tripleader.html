@@ -4,8 +4,8 @@
 <h3>{{trip}}</h3><br />
 <p>{{description}}</p><br />
 
+
 You can edit the trip description here:<br />
-<!--input type="text" ng-model="editTripDescription" size='100'><br /-->
 <textarea type="text" ng-model="editedTripDescription" cols='100' rows='4' placeholder='If you want, you can copy and past the description text here to start.'></textarea><br />
 <button class="btnNorm" ng-click="saveTripDescriptionEdits()">Save Edits</button>
 <br /><br />
@@ -23,7 +23,6 @@ You can edit the trip description here:<br />
 </ul>
 
 
-
 <h3>Add Trip Documents</h3>
 <br />
 
@@ -38,8 +37,8 @@ You can edit the trip description here:<br />
 <br />
 
 
-
 <h3>Trip Information Requests</h3>
+
 
 <ul>
     <li ng-repeat="attendee in attending track by $index">
@@ -51,6 +50,7 @@ You can edit the trip description here:<br />
 </ul>
 <br />
 
+
 <h3>Map to Put-In</h3>
 <a href="{{putInMap}}" target="_blank">Your Put-In map link</a>
 <div class="putinMap">
@@ -60,6 +60,7 @@ You can edit the trip description here:<br />
 
 </div>
 <br />
+
 
 <h3>Map of Shuttle Route</h3>
 <a href="{{shuttleMap}}" target="_blank">Your Shuttle map link</a>

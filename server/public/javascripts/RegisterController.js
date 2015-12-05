@@ -8,23 +8,24 @@ app.controller('RegisterController', ['$scope', '$http', '$location', function($
 
     $scope.register = function() {
         console.log('saw register click');
-        console.log('username: ', $scope.username);
-        console.log('password: ', $scope.password);
 
-        var jstring = {};
-        jstring.username = $scope.username;
-        jstring.password = $scope.password;
+        var regObject = {
+            username : $scope.username,
+            password : $scope.password
+        };
 
         $http({
             method: "POST",
             url: "users/reg",
-            data: jstring
+            data: regObject
         }).then(function (response) {
             console.log('client reg response ', response);
             if(response.data == "200") {
+                alert("Thank you for registering, now you may log in.");
                 $location.path('/login');
             } else {
-                console.log('There was an error registering')
+                alert("There was a problem registering you, please try again");
+                console.log('There was an error registering');
             }
         });
     }

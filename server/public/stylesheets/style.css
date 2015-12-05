@@ -4,12 +4,9 @@ body {
 
   max-width: 960px;
   padding: 50px;
-  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
   font: 16px "trebuchet MS", Helvetica, Arial, sans-serif;
   color: black;
   background: white;
-  /*padding: 10px;
-  margin: 10px;*/
 }
 
 p {
@@ -18,7 +15,6 @@ p {
 
 .header {
   height: 250px;
-  /*background-color: lightgray;*/
   margin-top: 0;
   border: 1px solid darkgray;
   background-image: url(../images/someRiverBackgroundCropped.jpg);
@@ -142,8 +138,6 @@ td {
 }
 
 body {
-  /*background-image: url("../images/colo-river-background.jpg");*/
-  /*background-image: url("../images/someRiverBackground.jpg");*/
   background-color: white;
 }
 
@@ -177,7 +171,6 @@ body {
   border-radius: 4px;
 }
 
-
 .superDiv{
   width: 100%;
 }
@@ -192,7 +185,6 @@ body {
   width: 33%;
   float: left;
   background-color: #357337;
-  /*height: 1000px;*/
   clear: none;
 }
 

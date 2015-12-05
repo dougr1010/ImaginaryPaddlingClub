@@ -29,10 +29,6 @@ app.config(function($routeProvider,$locationProvider) {
             templateUrl: 'views/mytrips.html',
             controller: 'MyTripsController'
         })
-        .when('/selectedtrip', {
-            templateUrl: 'views/selectedtrip.html',
-            controller: 'SelectedTripController'
-        })
         .when('/tripleader', {
             templateUrl: 'views/tripleader.html',
             controller: 'TripLeaderController'
@@ -69,18 +65,6 @@ app.config(function($routeProvider,$locationProvider) {
 app.controller('IndexNav', ['$scope', '$rootScope', function($scope, $rootScope){
 
     console.log('IndexNav controller running');
-
-    //ng-show the Bulletin Board and myTrips pages only if logged in
-    //$rootScope.LoggedIn = (($rootScope.loggedInAs != 'undefined') && (typeof $rootScope.loggedInAs == 'string'));
-
-    //ng-show trip leader page nav only if a trip leader
-    //$rootScope.TripLeader = (($rootScope.LoggedIn == true) ||
-    //                     ($rootScope.isTripLeader == true));
-
-    //hg-show the admin page nav only if WebMaster
-    //$rootScope.WebMaster = (($rootScope.LoggedIn) || ($rootScope.isWebMaster == true));
-
-    console.log('clientApp: $scope.LoggedIn/$scope.TripLeader/$scope.WebMaster: ',$rootScope.LoggedIn, $rootScope.TripLeader, $rootScope.WebMaster);
 
 }]);
 

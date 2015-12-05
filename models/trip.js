@@ -16,11 +16,6 @@ var tripSchema = new Schema({
     attachments: Array,
     putInMap: String,
     shuttleMap: String,
-    //attending: [{
-    //    username: String,
-    //    sent: String,
-    //    declined: String
-    //}]
     attending:Array
 });
 

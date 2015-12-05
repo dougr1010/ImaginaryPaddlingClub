@@ -11,14 +11,13 @@ app.controller('BulletinController', ['$scope', '$rootScope', '$http', function(
     getMessages();
 
 
+    function getMessages() {
+        $http.get('db/getMessage').then(function (response) {
+            $scope.messages=response.data;
+        });
+    }
 
 
-function getMessages() {
-    $http.get('db/getMessage').then(function (response) {
-        console.log(response);
-        $scope.messages=response.data;
-    });
-}
     //handle new message posting
     $scope.SubmitMessage = function(){
         console.log('saw Submit Message click');
@@ -43,7 +42,6 @@ function getMessages() {
             }
             $scope.messageContent = "";
         });
-
     }
 
 }]);

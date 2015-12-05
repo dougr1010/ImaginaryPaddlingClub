@@ -1,4 +1,4 @@
-<div>
+
 <h2>Welcome!</h2>
 
 <p>Welcome to the UpNorth Paddlers club.  We are an organization of paddlers who enjoy getting together to explore
@@ -13,10 +13,13 @@
 <button class="btnHome" ng-click="reqInfo()">Request Information</button>
 
 <h2>Club Messages</h2>
-<p>{{homeMessage}}</p> <br />
+<p>{{homeMessage}}</p>
+<br />
 
-<p      ng-show="showMessageEdit">You can edit Club Messages here:</p>
+<p ng-show="showMessageEdit">You can edit Club Messages here:</p>
 <textarea ng-show="showMessageEdit" id="homeMessageBox" ng-model="messageEditBox" cols='100' rows='4'
-          placeholder='If you want, you can copy and past the description text here to start.'></textarea><br />
+          placeholder='If you want, you can copy and paste the current message text here to start.'>
+</textarea>
+
+<br />
 <button ng-show="showMessageEdit" ng-click="saveMessage()">Save</button>
-</div>
